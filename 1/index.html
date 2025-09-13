@@ -15,7 +15,7 @@
 
     <div class="container mx-auto px-4 py-12">
         <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Project 0</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Project 1</h1>
         </header>
 
         <main class="space-y-12">
@@ -24,12 +24,17 @@
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview, Implementaation, and Issues</h2>
                 <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            On the left, we have a distorted "selfie" photo, and on the right, we have a far-away zoomed-in photo.
+                            In this project, I overlaid the color glass plate images taken by Sergei Mikhailovich Prokudin-Gorskii to produce historical color images. While this may seem like an easy task it is important to align the plate images so we end up with properly colored photographs. 
                         </p>
                     <p class="mb-4 text-gray-700 leading-relaxed">    
-                            We can think of the perspective of the camera as a cone of vision. Objects near the tip of the cone (close to the camera) will take up a significant portion of the field of view and appear significantly larger. This is why features such as the nose are enlarged and the ears are hidden. Further away, this effect is diminished since the ratio of object to cone of vision is not changing as dramatically.
+                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross correlation. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked flawlessly with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed.
+                        
                         </p>
-                    </div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">    
+                            The solution used for large tif files was to recursively change the resolution as I looked for the best shift. My base case had a minimum of 500x500 pixels, so images were first reduced to this resolution. I then looked for the best shift and sharpened the resolution in the next recursive call. The function returns when we finally reach the original call, which is the unaltered image.
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <p class="mb-4 text-gray-700 leading-relaxed">    
+                            While writing my implementation, I encountered some issues and bugs. First, I found that having the base case be too unresolved (for example, using 100x100 pixels) would often cause a wildly incorrect alignment. The best base case range I found was 500x500 to 1000x1000. However, even after implementing my recursive alignment, most images still did not align. I found that I had to introduce cropping to fix this, which I will discuss in the last section.
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="flex gap-4">
                         <img src="IMG_3916.jpg">
