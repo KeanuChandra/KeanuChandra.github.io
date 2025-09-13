@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Project 0</h1>
+        </header>
+
+        <main class="space-y-12">
+            <!-- Part 1 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview, Implementaation, and Issues</h2>
+                <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            On the left, we have a distorted "selfie" photo, and on the right, we have a far-away zoomed-in photo.
+                        </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed">    
+                            We can think of the perspective of the camera as a cone of vision. Objects near the tip of the cone (close to the camera) will take up a significant portion of the field of view and appear significantly larger. This is why features such as the nose are enlarged and the ears are hidden. Further away, this effect is diminished since the ratio of object to cone of vision is not changing as dramatically.
+                        </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex gap-4">
+                        <img src="IMG_3916.jpg">
+                        <img src="IMG_3917.jpg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 2 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Images</h2>
+                    <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            On the left, we have the flattened zoomed-in picture, and on the right, we have the standard picture. 
+                        </p>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                        The first image appears flattened because of the same principle as the previous part. The ratio of object to cone of vision is not changing as dramatically, so we lose the effect of the converging parallel lines of the street.
+                        </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex gap-4">
+                        <img src="IMG_3921.jpg">
+                        <img src="IMG_3920.jpg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 3 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">My Images</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="a4nt75.gif">
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12">
+            <a href="../index.html" class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                &larr; Back to Portfolio
+            </a>
+        </footer>
+    </div>
+
+</body>
+</html>
