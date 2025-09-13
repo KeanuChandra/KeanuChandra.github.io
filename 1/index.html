@@ -350,6 +350,31 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Part 5 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Alignment Issues</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    As I mentioned earlier, even using NCC and a fully functional pyramid alignment implementation, some of my images still did not align properly. The primary reason was that the boundaries of the images featured thick black or even white borders that tended to confuse my NCC algorithm. To remedy this, I simply cropped my images by 10 percent at the start of the align function. This significantly improved my results, as shown with the emir below.
+                </p>
+                
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    First emir is run with no cropping before alignment. The second emir has a tenth of the edges cropped before alignment is run.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="emir_uncropped.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="emir_color.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="text-center mt-12">
