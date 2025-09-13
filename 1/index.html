@@ -39,6 +39,20 @@
             </section>
 
             <!-- Part 2 -->
+            <style>
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax as needed */
+                gap: 8px; /* Adjust gap as needed */
+                align-items: center;
+              }
+            
+              .grid-item img {
+                max-width: 100%;
+                height: auto; /* Maintain aspect ratio */
+                display: block; /* Removes extra space below images */
+              }
+            </style>
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Images</h2>
                     <div>
@@ -49,6 +63,21 @@
                         Cathedral: Offsets of ag - (12,3) ar - (5,2)
                         </p>
                     </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="cathedral.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="cathedral_color.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Cathedral: Offsets of ag - (12,3) ar - (5,2)
+                    </p>
+                </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="flex gap-4">
                         <img src="cathedral.jpg">
