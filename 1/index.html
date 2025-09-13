@@ -24,10 +24,10 @@
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview, Implementaation, and Issues</h2>
                 <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            In this project, I overlaid the color glass plate images taken by Sergei Mikhailovich Prokudin-Gorskii to produce historical color images. While this may seem like an easy task it is important to align the plate images so we end up with properly colored photographs. 
+                            In this project, I overlaid the color glass plate images taken by Sergei Mikhailovich Prokudin-Gorskii to produce historical color images. While this may seem like an easy task, it is important to align the plate images so we end up with properly colored photographs. 
                         </p>
                     <p class="mb-4 text-gray-700 leading-relaxed">    
-                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross correlation. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked flawlessly with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed.
+                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross-correlation. In my implementation of NCC, I took each image pixel value and subtracted it with the mean pixel value, and divided by the standard deviation of pixel values. This is the normalization part of NCC. I then flattened the images into a 1D vector and took the dot product. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked flawlessly with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed.
                         
                         </p>
                         <p class="mb-4 text-gray-700 leading-relaxed">    
