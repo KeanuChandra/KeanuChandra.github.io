@@ -32,15 +32,10 @@
                         </p>
                         <p class="mb-4 text-gray-700 leading-relaxed">    
                             The solution used for large tif files was to recursively change the resolution as I looked for the best shift. My base case had a minimum of 500x500 pixels, so images were first reduced to this resolution. I then looked for the best shift and sharpened the resolution in the next recursive call. The function returns when we finally reach the original call, which is the unaltered image.
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    </p>
                     <p class="mb-4 text-gray-700 leading-relaxed">    
                             While writing my implementation, I encountered some issues and bugs. First, I found that having the base case be too unresolved (for example, using 100x100 pixels) would often cause a wildly incorrect alignment. The best base case range I found was 500x500 to 1000x1000. However, even after implementing my recursive alignment, most images still did not align. I found that I had to introduce cropping to fix this, which I will discuss in the last section.
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="flex gap-4">
-                        <img src="IMG_3916.jpg">
-                        <img src="IMG_3917.jpg">
-                    </div>
-                </div>
+                         </p>
             </section>
 
             <!-- Part 2 -->
@@ -48,16 +43,16 @@
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Images</h2>
                     <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            On the left, we have the flattened zoomed-in picture, and on the right, we have the standard picture. 
+                            For the following images, we have the three black and white images on the left and the overlaid color image on the right.
                         </p>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                        The first image appears flattened because of the same principle as the previous part. The ratio of object to cone of vision is not changing as dramatically, so we lose the effect of the converging parallel lines of the street.
+                        Cathedral: Offsets of ag - (12,3) ar - (5,2)
                         </p>
                     </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="flex gap-4">
-                        <img src="IMG_3921.jpg">
-                        <img src="IMG_3920.jpg">
+                        <img src="cathedral.jpg">
+                        <img src="cathedral_color.jpg">
                     </div>
                 </div>
             </section>
