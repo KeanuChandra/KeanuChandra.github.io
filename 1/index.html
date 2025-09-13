@@ -22,14 +22,31 @@
             <!-- Part 1 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview, Implementaation, and Issues</h2>
-                <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
                             In this project, I overlaid the color glass plate images taken by Sergei Mikhailovich Prokudin-Gorskii to produce historical color images. While this may seem like an easy task, it is important to align the plate images so we end up with properly colored photographs. 
                         </p>
                     <p class="mb-4 text-gray-700 leading-relaxed">    
-                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross-correlation. In my implementation of NCC, I took each image pixel value and subtracted it with the mean pixel value, and divided by the standard deviation of pixel values. This is the normalization part of NCC. I then flattened the images into a 1D vector and took the dot product. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked flawlessly with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed.
+                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross-correlation. In my implementation of NCC, I took each image pixel value and subtracted it with the mean pixel value, and divided by the standard deviation of pixel values. This is the normalization part of NCC. I then flattened the images into a 1D vector and took the dot product. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked flawlessly with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed. The results of this initial naive solution for a shift range of [-15.15] for the smaller jpg files is shown below.
                         
                         </p>
+                    <table width="100%">
+    <tr>
+      <td align="center" valign="top">
+        <img src="tobolsk_naive.jpg">
+        <p>Tobolsk</p>
+      </td>
+
+      <td align="center" valign="top">
+        <img src="cathedral_naive.jpg">
+        <p>Cathedral.</p>
+      </td>
+
+      <td align="center" valign="top">
+        <img src="monastery_naive.jpg">
+        <p>Monastery</p>
+      </td>
+    </tr>
+  </table>
                         <p class="mb-4 text-gray-700 leading-relaxed">    
                             The solution used for large tif files was to recursively change the resolution as I looked for the best shift. My base case had a minimum of 500x500 pixels, so images were first reduced to this resolution. I then looked for the best shift and sharpened the resolution in the next recursive call. The function returns when we finally reach the original call, which is the unaltered image.
                     </p>
