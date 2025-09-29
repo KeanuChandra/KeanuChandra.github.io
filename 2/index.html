@@ -49,219 +49,37 @@
               }
             </style>
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Images Using Final Algorithm</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 1.2</h2>
                     <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            For the following images, we have the three black and white images on the left and the overlaid color image on the right. My code kept the blue panel in the same location while shifting the red and green panels to obtain the optimal shift. The values of ag and ar represent these shifts in (y,x).
+                            Below are the dx, dy, and gradient magnitude for the cameraman image.
                         </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="dx.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="dy.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="gradient.png">
+                        </div>
+                    </div>
+                </div>
+                <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                        Cathedral: Offsets of ag - (12,3) ar - (5,2)
+                            Now we have the binarized edge image showing two differen thresholds. Greater thresholds remove more noise but sometimes get rid of edges.
                         </p>
                     </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="cathedral.jpg">
+                        <img src="binary1.png">
                         </div>
                         <div class = "grid-item">
-                        <img src="cathedral_color.jpg">
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Monastery: Offsets of ag - (3, 2) ar - (-3, 2)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="monastery.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="monastery_color.jpg">
-                        </div>
-                    </div>
-                </div>
-                
-             <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Tobolsk: Offsets of ag - (6, 3) ar - (3,3)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="tobolsk.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="tobolsk_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Church: Offsets of ag - (58, -4) ar - (25, 4)
-
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="church.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="church_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Emir: ag - (103, 55) ar - (49, 24)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="emir.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="emir_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Harvesters: ag - (124, 13) ar - (59, 16)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="harvesters.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="harvesters_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Icon: Offsets of ag - (89, 23) ar - (41, 17)
-
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="icon.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="icon_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Italil: Offsets of ag - (76, 35) ar - (38, 21)
-
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="italil.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="italil_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Lugano: Offsets of ag - (92, -29) ar - (41, -16)
-
-
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="lugano.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="lugano_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Melons: Offsets of ag - (148, 11) ar - (81, 10)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="melons.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="melons_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Self Portrait: Offsets of ag - (148, 31) ar - (78, 29)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="self_portrait.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="self_portrait_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Siren: Offsets of ag - (95, -25) ar - (49, -6)
-
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="siren.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="siren_color.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Three Generations: Offsets of ag - (112, 11) ar - (53,14)
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="grid-container">
-                        <div class = "grid-item">
-                        <img src="three_generations.jpg">
-                        </div>
-                        <div class = "grid-item">
-                        <img src="three_generations_color.jpg">
+                        <img src="binary2.png">
                         </div>
                     </div>
                 </div>
