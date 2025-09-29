@@ -99,9 +99,8 @@
                         <img src="filter_kernels.png">
                         </div>
                 </div>
-
-
-                    <p class="mb-4 text-gray-700 leading-relaxed">
+                </div>
+                <p class="mb-4 text-gray-700 leading-relaxed">
                     On the left is the finite difference method, on the right we have the DoG method. Binary thresholds are different because they are based on a *1.5 scaling factor in relation to the mean of the image.
                     </p>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -118,21 +117,23 @@
 
              <!-- Part 4 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Alignment Issues</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 2.1</h2>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                    The only image I felt that did not align perfectly was the self-portrait. While it aligned well enough to look correct at a glance, zooming in shows the red layer is shifted slightly up in certain places. There are a variety of theories that I have come up with that explain this issue. Since the other images aligned very well this image may have had the red panel taken at a slightly different angle, causing alignment based on translation to be infeasible. On the other hand, the issue could lie with the fact that there is not a very pronounced "light" and "dark" part of the image to align with NCC. A different algorithm, like edge detection, may yield better results here.
+                    For unsharp mask I iterated through each color channel seperately. I first found the low frequency values using the gaussian filter and then found the high frequency values by subtracting the low frequencies from the original image. I then readded these high frequencies back into the original image. Below are two examples.
                 </p>
                 
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Look closely at the rocks at the bottom. Alignment is slightly off!
-                    </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="taj.png">
+                        </div>
+                    </div>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="self_portrait_color.jpg">
+                        <img src="ww2,png">
                         </div>
                     </div>
                 </div>
