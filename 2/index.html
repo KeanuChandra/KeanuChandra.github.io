@@ -21,38 +21,17 @@
         <main class="space-y-12">
             <!-- Part 1 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview, Implementation, and Issues</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 1.1</h2>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            In this project, I overlaid the color glass plate images taken by Sergei Mikhailovich Prokudin-Gorskii to produce historical color images. While this may seem like an easy task, it is important to align the plate images so we end up with properly colored photographs. 
-                        </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed">    
-                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross-correlation. In my implementation of NCC, I took each image pixel value and subtracted it with the mean pixel value, and divided by the standard deviation of pixel values. This is the normalization part of NCC. I then flattened the images into a 1D vector and took the dot product. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked decently with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed. The results of this initial naive solution for a shift range of [-15.15] for the smaller jpg files is shown below.
-                        
+                            Convolving with the 9x9 box_filter took different amounts of time based on the number of loops. The four loop convolution took 146 seconds, two loop took 21 seconds, and scipy convolve took half a second. These varying times are due to loops being replaced by vectorization. In the two loop function the element-wise multiplication loop is replaced with a vectorized np.sum(f_section*h_flipped). In the scipy function even the loops for each element-wise multiplication operation are vectorized. Below is the box_filter convolved with an image of myself using my two-loop convolve function.
                         </p>
                     <table width="100%">
     <tr>
       <td align="center" valign="top">
-        <img src="tobolsk_naive.jpg">
-        <p>Tobolsk</p>
-      </td>
-
-      <td align="center" valign="top">
-        <img src="cathedral_naive.jpg">
-        <p>Cathedral.</p>
-      </td>
-
-      <td align="center" valign="top">
-        <img src="monastery_naive.jpg">
-        <p>Monastery</p>
+        <img src="me_convolve.png">
+        <p>Me and my dog</p>
       </td>
     </tr>
-  </table>
-                        <p class="mb-4 text-gray-700 leading-relaxed">    
-                            The solution used for large tif files was to recursively change the resolution as I looked for the best shift. My base case had a minimum of 500x500 pixels, so images were first reduced to this resolution. I then looked for the best shift and sharpened the resolution in the next recursive call. I only had to search a small range because I already knew from the previous call in what range the ideal shift was located. The function returns when we finally reach the original call, which is the unaltered image. This algorithm also improved the quality of the small JPG images since it could search for the ideal shift in a much larger range (not limited to the -15 to 15 range I had preset).
-                    </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed">    
-                            While writing my implementation, I encountered some issues and bugs. First, I found that having the base case be too unresolved (for example, using 100x100 pixels) would often cause a wildly incorrect alignment. The best base case range I found was 500x500 to 1000x1000. However, even after implementing my recursive alignment, most images still did not align. I found that I had to introduce cropping to fix this, which I will discuss in the last section.
-                         </p>
             </section>
 
             <!-- Part 2 -->
