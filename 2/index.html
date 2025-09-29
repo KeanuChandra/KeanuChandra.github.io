@@ -25,13 +25,12 @@
                         <p class="mb-4 text-gray-700 leading-relaxed">
                             Convolving with the 9x9 box_filter took different amounts of time based on the number of loops. The four loop convolution took 146 seconds, two loop took 21 seconds, and scipy convolve took half a second. These varying times are due to loops being replaced by vectorization. In the two loop function the element-wise multiplication loop is replaced with a vectorized np.sum(f_section*h_flipped). In the scipy function even the loops for each element-wise multiplication operation are vectorized. Below is the box_filter convolved with an image of myself using my two-loop convolve function.
                         </p>
-                    <table width="100%">
-    <tr>
-      <td align="center" valign="top">
-        <img src="me_convolve.png">
-        <p>Me and my dog</p>
-      </td>
-    </tr>
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="me_convolve.png">
+                        <p>Me and my dog</p>
+                      </td>
+                    </tr>
             </section>
 
             <!-- Part 2 -->
