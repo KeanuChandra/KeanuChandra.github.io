@@ -219,46 +219,51 @@
 
              <!-- Part 4 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Alignment Issues</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A.4</h2>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                    The only image I felt that did not align perfectly was the self-portrait. While it aligned well enough to look correct at a glance, zooming in shows the red layer is shifted slightly up in certain places. There are a variety of theories that I have come up with that explain this issue. Since the other images aligned very well this image may have had the red panel taken at a slightly different angle, causing alignment based on translation to be infeasible. On the other hand, the issue could lie with the fact that there is not a very pronounced "light" and "dark" part of the image to align with NCC. A different algorithm, like edge detection, may yield better results here.
+                    To stitch together my images, I applied the homography transformation on one of the images to put it in the same perspective as the first. I then aligned the edges of the images so that they overlapped correctly. Finally, I blended the images together using multiresolution blending featured in project 2.
                 </p>
                 
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Look closely at the rocks at the bottom. Alignment is slightly off!
-                    </p>
-                </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="self_portrait_color.jpg">
+                        <img src="im1.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="im2.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="im1_stitched.png">
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Part 5 -->
-            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Bells and Whistles</h2>
-
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                    As I mentioned earlier, even using NCC and a fully functional pyramid alignment implementation, some of my images still did not align properly. The primary reason was that the boundaries of the images featured thick black or even white borders that tended to confuse my NCC algorithm. To remedy this, I simply cropped my images by 10 percent at the start of the align function. This significantly improved my results, as shown with the emir below.
-                </p>
-                
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    First emir is run with no cropping before alignment. The second emir has a tenth of the edges cropped before alignment is run.
-                    </p>
-                </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="emir_uncropped.jpg">
+                        <img src="rooftop_im1.png">
                         </div>
                         <div class = "grid-item">
-                        <img src="emir_color.jpg">
+                        <img src="rooftop_im2.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="rooftop_stitched.png">
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="street_im1.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="street_im2.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="street_stitched.png">
                         </div>
                     </div>
                 </div>
