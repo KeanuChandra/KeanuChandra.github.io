@@ -175,24 +175,25 @@
 
             <!-- Part 3 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">My Images</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A.3</h2>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                    These are some images I chose from the Prokudin-Gorskii collection.
+                    For these two images, we can see that nearest neighbor interpolation is a lot less smooth in comparison to bilinear interpolation. Though it does take longer, for files of this size, the time difference is negligible. 
                 </p>
                 
-                <div>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                    Mosque
-                    </p>
-                </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="mosque.jpg">
+                        <img src="oval_office.png">
+                            <figcaption>Oval Office</figcaption>
                         </div>
                         <div class = "grid-item">
-                        <img src="mosque_color.jpg">
+                        <img src="ben_NN.png">
+                        <figcaption>Benjamin Franklin with Nearest Neighbor Interpolation</figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="ben_bilinear.png">
+                        <figcaption>Benjamin Franklin with Bilinear Interpolation</figcaption>
                         </div>
                     </div>
                 </div>
