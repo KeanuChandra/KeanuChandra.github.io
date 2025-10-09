@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Project 1</h1>
+        </header>
+
+        <main class="space-y-12">
+            <!-- Part 1 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview, Implementation, and Issues</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            In this project, I overlaid the color glass plate images taken by Sergei Mikhailovich Prokudin-Gorskii to produce historical color images. While this may seem like an easy task, it is important to align the plate images so we end up with properly colored photographs. 
+                        </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed">    
+                            The initial solution I arrived at was to roll the images by the x and y axes and calculate the shift with the largest normalized cross-correlation. In my implementation of NCC, I took each image pixel value and subtracted it with the mean pixel value, and divided by the standard deviation of pixel values. This is the normalization part of NCC. I then flattened the images into a 1D vector and took the dot product. This basically tells us which shift best aligns pixel shades relative to the average pixel shade of the image. This worked decently with smaller-sized jpg images, but took excessive amounts of time for larger .tif files since more calculations and potentially larger offsets were needed. The results of this initial naive solution for a shift range of [-15.15] for the smaller jpg files is shown below.
+                        
+                        </p>
+                    <table width="100%">
+    <tr>
+      <td align="center" valign="top">
+        <img src="tobolsk_naive.jpg">
+        <p>Tobolsk</p>
+      </td>
+
+      <td align="center" valign="top">
+        <img src="cathedral_naive.jpg">
+        <p>Cathedral.</p>
+      </td>
+
+      <td align="center" valign="top">
+        <img src="monastery_naive.jpg">
+        <p>Monastery</p>
+      </td>
+    </tr>
+  </table>
+                        <p class="mb-4 text-gray-700 leading-relaxed">    
+                            The solution used for large tif files was to recursively change the resolution as I looked for the best shift. My base case had a minimum of 500x500 pixels, so images were first reduced to this resolution. I then looked for the best shift and sharpened the resolution in the next recursive call. I only had to search a small range because I already knew from the previous call in what range the ideal shift was located. The function returns when we finally reach the original call, which is the unaltered image. This algorithm also improved the quality of the small JPG images since it could search for the ideal shift in a much larger range (not limited to the -15 to 15 range I had preset).
+                    </p>
+                    <p class="mb-4 text-gray-700 leading-relaxed">    
+                            While writing my implementation, I encountered some issues and bugs. First, I found that having the base case be too unresolved (for example, using 100x100 pixels) would often cause a wildly incorrect alignment. The best base case range I found was 500x500 to 1000x1000. However, even after implementing my recursive alignment, most images still did not align. I found that I had to introduce cropping to fix this, which I will discuss in the last section.
+                         </p>
+            </section>
+
+            <!-- Part 2 -->
+            <style>
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax as needed */
+                gap: 8px; /* Adjust gap as needed */
+                align-items: center;
+              }
+            
+              .grid-item img {
+                max-width: 100%;
+                height: auto; /* Maintain aspect ratio */
+                display: block; /* Removes extra space below images */
+              }
+            </style>
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Images Using Final Algorithm</h2>
+                    <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            For the following images, we have the three black and white images on the left and the overlaid color image on the right. My code kept the blue panel in the same location while shifting the red and green panels to obtain the optimal shift. The values of ag and ar represent these shifts in (y,x).
+                        </p>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                        Cathedral: Offsets of ag - (12,3) ar - (5,2)
+                        </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="cathedral.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="cathedral_color.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Monastery: Offsets of ag - (3, 2) ar - (-3, 2)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="monastery.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="monastery_color.jpg">
+                        </div>
+                    </div>
+                </div>
+                
+             <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Tobolsk: Offsets of ag - (6, 3) ar - (3,3)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="tobolsk.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="tobolsk_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Church: Offsets of ag - (58, -4) ar - (25, 4)
+
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="church.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="church_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Emir: ag - (103, 55) ar - (49, 24)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="emir.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="emir_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Harvesters: ag - (124, 13) ar - (59, 16)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="harvesters.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="harvesters_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Icon: Offsets of ag - (89, 23) ar - (41, 17)
+
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="icon.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="icon_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Italil: Offsets of ag - (76, 35) ar - (38, 21)
+
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="italil.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="italil_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Lugano: Offsets of ag - (92, -29) ar - (41, -16)
+
+
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="lugano.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="lugano_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Melons: Offsets of ag - (148, 11) ar - (81, 10)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="melons.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="melons_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Self Portrait: Offsets of ag - (148, 31) ar - (78, 29)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="self_portrait.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="self_portrait_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Siren: Offsets of ag - (95, -25) ar - (49, -6)
+
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="siren.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="siren_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Three Generations: Offsets of ag - (112, 11) ar - (53,14)
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="three_generations.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="three_generations_color.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 3 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">My Images</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    These are some images I chose from the Prokudin-Gorskii collection.
+                </p>
+                
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Mosque
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="mosque.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="mosque_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Isfandiyar
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="isfandiyar.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="isfandiyar_color.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Carpet Room
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="carpet.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="carpet_color.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Part 4 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Alignment Issues</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    The only image I felt that did not align perfectly was the self-portrait. While it aligned well enough to look correct at a glance, zooming in shows the red layer is shifted slightly up in certain places. There are a variety of theories that I have come up with that explain this issue. Since the other images aligned very well this image may have had the red panel taken at a slightly different angle, causing alignment based on translation to be infeasible. On the other hand, the issue could lie with the fact that there is not a very pronounced "light" and "dark" part of the image to align with NCC. A different algorithm, like edge detection, may yield better results here.
+                </p>
+                
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Look closely at the rocks at the bottom. Alignment is slightly off!
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="self_portrait_color.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 5 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Bells and Whistles</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    As I mentioned earlier, even using NCC and a fully functional pyramid alignment implementation, some of my images still did not align properly. The primary reason was that the boundaries of the images featured thick black or even white borders that tended to confuse my NCC algorithm. To remedy this, I simply cropped my images by 10 percent at the start of the align function. This significantly improved my results, as shown with the emir below.
+                </p>
+                
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    First emir is run with no cropping before alignment. The second emir has a tenth of the edges cropped before alignment is run.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="emir_uncropped.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="emir_color.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12">
+            <a href="../index.html" class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                &larr; Back to Portfolio
+            </a>
+        </footer>
+    </div>
+
+</body>
+</html>
