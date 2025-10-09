@@ -32,7 +32,7 @@
                       </td>
                 
                       <td align="center" valign="top">
-                        <img src="im1.jpg">
+                        <img src="im2.jpg">
                       </td>
                     </tr>
                   </table>
@@ -78,36 +78,33 @@
               }
             </style>
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Images Using Final Algorithm</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A.2</h2>
                     <div>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            For the following images, we have the three black and white images on the left and the overlaid color image on the right. My code kept the blue panel in the same location while shifting the red and green panels to obtain the optimal shift. The values of ag and ar represent these shifts in (y,x).
-                        </p>
-                        <p class="mb-4 text-gray-700 leading-relaxed">
-                        Cathedral: Offsets of ag - (12,3) ar - (5,2)
+                            Correspondence Set 1
                         </p>
                     </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="cathedral.jpg">
+                        <img src="c_im1.png">
                         </div>
                         <div class = "grid-item">
-                        <img src="cathedral_color.jpg">
+                        <img src="c_im1.png">
                         </div>
                     </div>
                 </div>
                 <div>
                     <p class="mb-4 text-gray-700 leading-relaxed">
-                    Monastery: Offsets of ag - (3, 2) ar - (-3, 2)
+                    To find our homography matrix we find the value of h that maximizes ||Ah||^2 which is equivalent to the eigenvector corresponding to the smallest eigenvalue of A^TA.
                     </p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="grid-container">
                         <div class = "grid-item">
-                        <img src="monastery.jpg">
+                        <img src="im1_A.png">
                         </div>
-                        <div class = "grid-item">
+                        <div class = "im1_H.png">
                         <img src="monastery_color.jpg">
                         </div>
                     </div>
