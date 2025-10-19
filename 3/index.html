@@ -294,6 +294,17 @@
                     </div>
                 </div>
             </section>
+
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.2</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    For each corner found using AMNS, I took a 40x40 window around the corenr and averaged it down into an 8x8 matrix. I then bias/gain normalized it to get a feature that generally describes the corner. This can be used to match the general region around corners in two images to determine whether or not they match. Below are some examples of what the feature descriptors look like.
+                </p>
+                    <div>
+                        <img src="harris_corners.png">
+                    </div>
+            </section>
         </main>
 
         <footer class="text-center mt-12">
