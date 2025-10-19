@@ -317,6 +317,17 @@
                         <img src="feature_matches.png">
                     </div>
             </section>
+
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.4</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Finally, I used 4-point RANSAC to estimate the homography needed to transform image 1 into the perspective of iamge 2. This involved first selecting 4 random pairs of points from part B.3, calculating the homography matrix using these 4 points, and then checking if points from im1 landed close to the im2 points when ransformed by the homography matrix. Using a RANSAC threshold of 25 I was able to get a final homography matrix that I used to stitch my images together in the same manner as part A.
+                </p>
+                    <div>
+                        <img src="feature_matches.png">
+                    </div>
+            </section>
         </main>
 
         <footer class="text-center mt-12">
