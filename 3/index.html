@@ -268,6 +268,32 @@
                     </div>
                 </div>
             </section>
+
+
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.1</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Harris Corner Detection shows us where there are areas of high contrast in all directions. To avoid our corners clustering in high contrast regions, we use ANMS to choose local maxima.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="harris_corners.png">
+                            <figcaption class="text-center text-sm mt-2">
+                            All Harris Corners
+                            </figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="anms_corners.png">
+                            <figcaption class="text-center text-sm mt-2">
+                            AMNS Filtered Corners. I used only the right side corners since all overlap occured only on the righ half of the image.
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="text-center mt-12">
