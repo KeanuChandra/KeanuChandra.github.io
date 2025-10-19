@@ -234,7 +234,7 @@
                         <img src="im2.jpg">
                         </div>
                         <div class = "grid-item">
-                        <img src="im1_stitched.png">
+                        <img src="road_stitched2.png">
                         </div>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                         <img src="rooftop_im2.jpg">
                         </div>
                         <div class = "grid-item">
-                        <img src="rooftop_stitched.png">
+                        <img src="rooftop_stitched2.png">
                         </div>
                     </div>
                 </div>
@@ -263,7 +263,7 @@
                         <img src="street_im2.jpg">
                         </div>
                         <div class = "grid-item">
-                        <img src="street_stitched.png">
+                        <img src="street_stitched2.png">
                         </div>
                     </div>
                 </div>
@@ -322,10 +322,37 @@
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.4</h2>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                    Finally, I used 4-point RANSAC to estimate the homography needed to transform image 1 into the perspective of image 2. This involved first selecting 4 random pairs of points from part B.3, calculating the homography matrix using these 4 points, and then checking if points from im1 landed close to the im2 points when ransformed by the homography matrix. Using a RANSAC threshold of 25 I was able to get a final homography matrix that I used to stitch my images together in the same manner as part A.
+                    Finally, I used 4-point RANSAC to estimate the homography needed to transform image 1 into the perspective of image 2. This involved first selecting 4 random pairs of points from part B.3, calculating the homography matrix using these 4 points, and then checking if points from im1 landed close to the im2 points when transformed by the homography matrix. Using a RANSAC threshold of 25 I was able to get a final homography matrix that I used to stitch my images together in the same manner as part A.
                 </p>
-                    <div>
-                        <img src="feature_matches.png">
+                 <p class="mb-4 text-gray-700 leading-relaxed">
+                   On the left are the stitched images using manually found points, while on the right are the stitched images using RANSAC found points.
+                </p>
+                    <div class="grid grid-cols-2 gap-8">
+
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="road_stitched2.png" alt="Image 1 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="automosaic_road.png" alt="Image 2 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="street_stitched2.png" alt="Image 3 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="automosaic_road.png" alt="Image 4 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="rooftop_stitched2.png" alt="Image 5 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="automosaic_rooftop.png" alt="Image 6 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
                     </div>
             </section>
         </main>
