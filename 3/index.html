@@ -305,6 +305,18 @@
                         <img src="Descriptors.png">
                     </div>
             </section>
+
+            
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.3</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Next, for each corner in image 1 I used feature descriptors to find the L2 distance between it and all the corners of image 2. If a corner had a relatively unique nearest neighbor (meaning the ratio between the 1-NN and 2-NN was low) it was likely that the corner had a matching pair in its 1-NN. Using a ratio threshold of 0.4 I was able to find several of these matches show below.
+                </p>
+                    <div>
+                        <img src="feature_matches.png">
+                    </div>
+            </section>
         </main>
 
         <footer class="text-center mt-12">
