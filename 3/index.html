@@ -288,7 +288,7 @@
                         <div class = "grid-item">
                         <img src="anms_corners.png">
                             <figcaption class="text-center text-sm mt-2">
-                            AMNS Filtered Corners. I used only the right side corners since all overlap occured only on the righ half of the image.
+                            AMNS Filtered Corners. I used only the right side corners since all overlap occurred only on the right half of the image.
                             </figcaption>
                         </div>
                     </div>
@@ -299,7 +299,7 @@
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.2</h2>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                    For each corner found using AMNS, I took a 40x40 window around the corner and averaged it down into an 8x8 matrix. I then bias/gain normalized it to get a feature that generally describes the corner. This can be used to match the general region around corners in two images to determine whether or not they match. Below are some examples of what the feature descriptors look like.
+                    For each corner found using AMNS, I took a 40x40 window around the corner and averaged it down into an 8x8 matrix. I then bias/gain-normalized it to get a feature that generally describes the corner. This can be used to match the general region around corners in two images to determine whether or not they match. Below are some examples of what the feature descriptors look like.
                 </p>
                     <div>
                         <img src="Descriptors.png">
@@ -322,7 +322,7 @@
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.4</h2>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                    Finally, I used 4-point RANSAC to estimate the homography needed to transform image 1 into the perspective of iamge 2. This involved first selecting 4 random pairs of points from part B.3, calculating the homography matrix using these 4 points, and then checking if points from im1 landed close to the im2 points when ransformed by the homography matrix. Using a RANSAC threshold of 25 I was able to get a final homography matrix that I used to stitch my images together in the same manner as part A.
+                    Finally, I used 4-point RANSAC to estimate the homography needed to transform image 1 into the perspective of image 2. This involved first selecting 4 random pairs of points from part B.3, calculating the homography matrix using these 4 points, and then checking if points from im1 landed close to the im2 points when ransformed by the homography matrix. Using a RANSAC threshold of 25 I was able to get a final homography matrix that I used to stitch my images together in the same manner as part A.
                 </p>
                     <div>
                         <img src="feature_matches.png">
