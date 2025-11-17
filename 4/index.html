@@ -152,7 +152,7 @@
                         </p>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                            sample_rays randomly sampled N rays from each image, and sample_along_rays randomly sampled points in a given range along the ray. Below, we can see what 10 points sampled along a randomly generated ray for each image looks like.
+                            sample_rays randomly sampled N rays from each image, and sample_along_rays randomly sampled points in a given range along the ray. Below, we can see what 10 points sampled along a randomly generated ray for each image look like.
                         </p>
                 
                     <table width="100%">
@@ -163,7 +163,29 @@
                     </tr>
                   </table>
 
-                
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            For the model, I followed the recommended implementation, which features 8 dense layers and a split into a density and color output. I used a coordinate positional encoding frequency of 10 and a direction positional encoding frequency of 4. I trained my model for 1000 epochs, each with 10000 rays. Here is the progression of my model.
+                        </p>
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="nerf_lego_render100.gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="nerf_lego_render200.gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="nerf_lego_render300.gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="nerf_lego_render400.gif">
+                      </td>
+                    </tr>
+                  </table>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            Final Output of LEGO and PSNR.
+                        </p>
             </section>
 
         </main>
