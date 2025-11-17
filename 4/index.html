@@ -135,6 +135,40 @@
                   </table>
             </section>
 
+                        <!-- Part 2 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 2</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            In this part, I used a neural field to represent the LEGO vehicle in 3d space. To this end, I created several functions.
+                        </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            transform(c2w, x_c) converted coordinates from camera to world using matrix multiplication
+                        </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            pixel_to_camera(K, uv, s) converted pixels to camera coordinates by solving a linear system of equations defined as s*uv = K*xc for xc.
+                        </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            pixel_to_ray(K, c2w, uv) found the origin and direction vector for a pixel in relation to a pinhole camera. The origin vector could be found through c2w, and the direction vector was found through matrix multiplication with c2w and the pixel.
+                        </p>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            sample_rays randomly sampled N rays from each image, and sample_along_rays randomly sampled points in a given range along the ray.
+                        </p>
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="mouse1.png">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="mouse2.png">
+                      </td>
+                    </tr>
+                  </table>
+
+                
+            </section>
+
         </main>
 
         <footer class="text-center mt-12">
