@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Project 3</h1>
+        </header>
+
+        <main class="space-y-12">
+            <!-- Part 0 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 0</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            Here are two screenshots of my camera frustrums visualization in Viser
+                        </p>
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="im1.jpg">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="im2.jpg">
+                      </td>
+                    </tr>
+                  </table>
+
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="rooftop_im1.jpg">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="rooftop_im2.jpg">
+                      </td>
+                    </tr>
+                  </table>
+
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="street_im1.jpg">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="street_im2.jpg">
+                      </td>
+                    </tr>
+                  </table>
+            </section>
+
+            <!-- Part 2 -->
+            <style>
+              .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax as needed */
+                gap: 8px; /* Adjust gap as needed */
+                align-items: center;
+              }
+            
+              .grid-item img {
+                max-width: 100%;
+                height: auto; /* Maintain aspect ratio */
+                display: block; /* Removes extra space below images */
+              }
+            </style>
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A.2</h2>
+                    <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            Correspondence Set 1
+                        </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="c_im1.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="c_im1.png">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    To find our homography matrix we find the value of h that maximizes ||Ah||^2 which is equivalent to the eigenvector corresponding to the smallest eigenvalue of A^TA.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="im1_A.png">
+                        </div>
+                        <div class = "grid-ite">
+                        <img src="im1_H.png">
+                        </div>
+                    </div>
+                </div>
+                
+            <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            Correspondence Set 2
+                        </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="c_rooftop1.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="c_rooftop2.png">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    To find our homography matrix we find the value of h that maximizes ||Ah||^2 which is equivalent to the eigenvector corresponding to the smallest eigenvalue of A^TA.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="rooftop_A.png">
+                        </div>
+                        <div class = "im1_H.png">
+                        <img src="rooftop_H.png">
+                        </div>
+                    </div>
+                </div>
+
+                            <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            Correspondence Set 3
+                        </p>
+                    </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="c_street1.png">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="c_street2.png">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    To find our homography matrix we find the value of h that maximizes ||Ah||^2 which is equivalent to the eigenvector corresponding to the smallest eigenvalue of A^TA.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="street_A.png">
+                        </div>
+                        <div class = "im1_H.png">
+                        <img src="street_A.png">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 3 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A.3</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    For these two images, we can see that nearest neighbor interpolation is a lot less smooth in comparison to bilinear interpolation. Though it does take longer, for files of this size, the time difference is negligible. 
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="oval_office.png">
+                            <figcaption>Oval Office</figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="ben_NN.png">
+                        <figcaption>Benjamin Franklin with Nearest Neighbor Interpolation</figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="ben_bilinear.png">
+                        <figcaption>Benjamin Franklin with Bilinear Interpolation</figcaption>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="josh.png">
+                            <figcaption>Josh Allen</figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="josh_NN.png">
+                        <figcaption>Josh Allen with Nearest Neighbor Interpolation</figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="josh_bilinear.png">
+                        <figcaption>Josh Allen with Bilinear Interpolation</figcaption>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+             <!-- Part 4 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A.4</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    To stitch together my images, I applied the homography transformation on one of the images to put it in the same perspective as the first. I then aligned the edges of the images so that they overlapped correctly. Finally, I blended the images together using multiresolution blending featured in project 2.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="im1.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="im2.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="road_stitched2.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="rooftop_im1.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="rooftop_im2.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="rooftop_stitched2.png">
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="street_im1.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="street_im2.jpg">
+                        </div>
+                        <div class = "grid-item">
+                        <img src="street_stitched2.png">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.1</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Harris Corner Detection shows us where there are areas of high contrast in all directions. To avoid our corners clustering in high contrast regions, we use ANMS to choose local maxima.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="grid-container">
+                        <div class = "grid-item">
+                        <img src="harris_corners.png">
+                            <figcaption class="text-center text-sm mt-2">
+                            All Harris Corners
+                            </figcaption>
+                        </div>
+                        <div class = "grid-item">
+                        <img src="anms_corners.png">
+                            <figcaption class="text-center text-sm mt-2">
+                            AMNS Filtered Corners. I used only the right side corners since all overlap occurred only on the right half of the image.
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.2</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    For each corner found using AMNS, I took a 40x40 window around the corner and averaged it down into an 8x8 matrix. I then bias/gain-normalized it to get a feature that generally describes the corner. This can be used to match the general region around corners in two images to determine whether or not they match. Below are some examples of what the feature descriptors look like.
+                </p>
+                    <div>
+                        <img src="Descriptors.png">
+                    </div>
+            </section>
+
+            
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.3</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Next, for each corner in image 1 I used feature descriptors to find the L2 distance between it and all the corners of image 2. If a corner had a relatively unique nearest neighbor (meaning the ratio between the 1-NN and 2-NN was low) it was likely that the corner had a matching pair in its 1-NN. Using a ratio threshold of 0.4 I was able to find several of these matches show below.
+                </p>
+                    <div>
+                        <img src="feature_matches.png">
+                    </div>
+            </section>
+
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B.4</h2>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                    Finally, I used 4-point RANSAC to estimate the homography needed to transform image 1 into the perspective of image 2. This involved first selecting 4 random pairs of points from part B.3, calculating the homography matrix using these 4 points, and then checking if points from im1 landed close to the im2 points when transformed by the homography matrix. Using a RANSAC threshold of 25 I was able to get a final homography matrix that I used to stitch my images together in the same manner as part A.
+                </p>
+                 <p class="mb-4 text-gray-700 leading-relaxed">
+                   On the left are the stitched images using manually found points, while on the right are the stitched images using RANSAC found points.
+                </p>
+                    <div class="grid grid-cols-2 gap-8">
+
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="road_stitched2.png" alt="Image 1 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="automosaic_road.png" alt="Image 2 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="street_stitched2.png" alt="Image 3 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="automosaic_street.png" alt="Image 4 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="rooftop_stitched2.png" alt="Image 5 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                        <figure class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="automosaic_rooftop.png" alt="Image 6 description" class="w-full h-auto object-cover">
+                        </figure>
+                    
+                    </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12">
+            <a href="../index.html" class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                &larr; Back to Portfolio
+            </a>
+        </footer>
+    </div>
+
+</body>
+</html>
