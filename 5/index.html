@@ -40,69 +40,54 @@
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 1</h2>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            I created a Neural Field Model to recreate 2d images. My model followed the same structure as displayed by the course. I used 3 256-width layers connected by ReLU activation layers. with a final 3-width layer connected to a Sigmoid layer. I fed in sinusoidal positional encodings of frequencies varying from 3 to 20. Below are examples of the training progression for two images.
-                        </p>
+                            Here is the original image of the Campanille that I will be using.
+                            </p>
                     <table width="100%">
                     <tr>
                       <td align="center" valign="top">
-                        <img src="fox_200.png">
+                        <img src="camp_og.png">
                       </td>
+                    </tr>
+                  </table>
                 
+                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    Part 1.1: Progressively noisy images (t=250, t=500, t=750)
+                        </p>
+                <table width="100%">
+                    <tr>
                       <td align="center" valign="top">
-                        <img src="fox_400.png">
-                      </td>
-
-                        <td align="center" valign="top">
-                        <img src="fox_600.png">
-                      </td>
-
-                        <td align="center" valign="top">
-                        <img src="fox_800.png">
-                      </td>
-
-                        <td align="center" valign="top">
-                        <img src="fox_1000.png">
+                        <img src="camp_1.1.png">
                       </td>
                     </tr>
                   </table>
 
-
+                 <p class="mb-4 text-gray-700 leading-relaxed">
+                    Part 1.2: Denoising using Gaussian Blur (t=250, t=500, t=750)
+                        </p>
                 <table width="100%">
                     <tr>
                       <td align="center" valign="top">
-                        <img src="eagle_200.png">
-                      </td>
-                
-                      <td align="center" valign="top">
-                        <img src="eagle_400.png">
-                      </td>
-
-                        <td align="center" valign="top">
-                        <img src="eagle_600.png">
-                      </td>
-
-                        <td align="center" valign="top">
-                        <img src="eagle_800.png">
-                      </td>
-
-                        <td align="center" valign="top">
-                        <img src="eagle_1000.png">
+                        <img src="camp_1.1.png">
                       </td>
                     </tr>
                   </table>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                            Below is a 2x2 grid showing different choices of layer width and MPE frequency.
+                            Part 1.3: One-step denoising
                         </p>
 
                 <table width="100%">
                     <tr>
                       <td align="center" valign="top">
-                        <img src="3_64.png">
+                        <img src="1.3_250.png">
                       </td>
                 
                       <td align="center" valign="top">
-                        <img src="3_256.png">
+                        <img src="1.3_500.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="1.3_750.png">
                       </td>
                     </tr>
                   </table>
