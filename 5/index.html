@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
 
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Project 3</h1>
+        </header>
+
+        <main class="space-y-12">
+            <!-- Part 0 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 0</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            Here are some generated images from text prompts. The top row uses inference steps of 20 while the bottom row uses inference steps of 100. The seed used is 100.
+                        </p>
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="gen_0.png">
+                      </td>
+                    </tr>
+                  </table>
+
+                
+            </section>
+
+<!-- Part 1 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 1</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            I created a Neural Field Model to recreate 2d images. My model followed the same structure as displayed by the course. I used 3 256-width layers connected by ReLU activation layers. with a final 3-width layer connected to a Sigmoid layer. I fed in sinusoidal positional encodings of frequencies varying from 3 to 20. Below are examples of the training progression for two images.
+                        </p>
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="fox_200.png">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="fox_400.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="fox_600.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="fox_800.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="fox_1000.png">
+                      </td>
+                    </tr>
+                  </table>
+
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="eagle_200.png">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="eagle_400.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="eagle_600.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="eagle_800.png">
+                      </td>
+
+                        <td align="center" valign="top">
+                        <img src="eagle_1000.png">
+                      </td>
+                    </tr>
+                  </table>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            Below is a 2x2 grid showing different choices of layer width and MPE frequency.
+                        </p>
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="3_64.png">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="3_256.png">
+                      </td>
+                    </tr>
+                  </table>
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="20_64.png">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="20_256.png">
+                      </td>
+                    </tr>
+                  </table>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            Here is the PSNR curve for the eagle at MPE frequency 20 and layer width 256.
+                        </p>
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="PSNR_eagle.png">
+                      </td>
+                    </tr>
+                  </table>
+            </section>
+
+                        <!-- Part 2 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 2</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            In this part, I used a neural field to represent the LEGO vehicle in 3d space. To this end, I created several functions.
+                        </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            transform(c2w, x_c) converted coordinates from camera to world using matrix multiplication
+                        </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            pixel_to_camera(K, uv, s) converted pixels to camera coordinates by solving a linear system of equations defined as s*uv = K*xc for xc.
+                        </p>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            pixel_to_ray(K, c2w, uv) found the origin and direction vector for a pixel in relation to a pinhole camera. The origin vector could be found through c2w, and the direction vector was found through matrix multiplication with c2w and the pixel.
+                        </p>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            sample_rays randomly sampled N rays from each image, and sample_along_rays randomly sampled points in a given range along the ray. Below, we can see what 10 points sampled along a randomly generated ray for each image look like.
+                        </p>
+                
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="lego_viz.png">
+                      </td>
+                    </tr>
+                  </table>
+
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            For the model, I followed the recommended implementation, which features 8 dense layers and a split into a density and color output. I used a coordinate positional encoding frequency of 10 and a direction positional encoding frequency of 4. I trained my model for 1000 epochs, each with 10000 rays. Here is the progression of my model.
+                        </p>
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="nerf_lego_render100.gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="nerf_lego_render200.gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="nerf_lego_render300.gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="nerf_lego_render400.gif">
+                      </td>
+                    </tr>
+                  </table>
+                <p class="mb-4 text-gray-700 leading-relaxed">
+                            Final Output of LEGO and PSNR.
+                        </p>
+
+                <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="nerf_lego_render (8).gif">
+                      </td>
+                        <td align="center" valign="top">
+                        <img src="lego_PSNR_curve.png">
+                      </td>
+                    </tr>
+                  </table>
+            </section>
+
+                        <!-- Part 2.6 -->
+            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 2.6</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">
+                            Unfortunately, my data did not work well with this model. The changes I made included flipping the height and width of the images, changing the range of sampling points along the ray to [0.02,0.25], and finally reducing the number of frames in the GIF due to the long runtime encountered with generating frames. Below is the PSNR curve I obtained and my attempt at the rotation GIF (though it did not work well due to my low PSNR)
+                        </p>
+                    <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <img src="PSNR_mouse.png">
+                      </td>
+                
+                      <td align="center" valign="top">
+                        <img src="nerf_mouse_render1000-ezgif.com-optimize.gif">
+                      </td>
+                    </tr>
+                  </table>
+
+                
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12">
+            <a href="../index.html" class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                &larr; Back to Portfolio
+            </a>
+        </footer>
+    </div>
+
+</body>
+</html>
