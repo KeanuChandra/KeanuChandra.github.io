@@ -38,7 +38,7 @@
 
 <!-- Part 1 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 1</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part A</h2>
                         <p class="mb-4 text-gray-700 leading-relaxed">
                             Here is the original image of the Campanille that I will be using.
                             </p>
@@ -281,87 +281,23 @@
 
                         <!-- Part 2 -->
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 2</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part B</h2>
                         <p class="mb-4 text-gray-700 leading-relaxed">
-                            In this part, I used a neural field to represent the LEGO vehicle in 3d space. To this end, I created several functions.
-                        </p>
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                            transform(c2w, x_c) converted coordinates from camera to world using matrix multiplication
-                        </p>
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                            pixel_to_camera(K, uv, s) converted pixels to camera coordinates by solving a linear system of equations defined as s*uv = K*xc for xc.
-                        </p>
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                            pixel_to_ray(K, c2w, uv) found the origin and direction vector for a pixel in relation to a pinhole camera. The origin vector could be found through c2w, and the direction vector was found through matrix multiplication with c2w and the pixel.
+                            In this part, I build and train a UNET for the MNIST dataset.
                         </p>
 
                 <p class="mb-4 text-gray-700 leading-relaxed">
-                            sample_rays randomly sampled N rays from each image, and sample_along_rays randomly sampled points in a given range along the ray. Below, we can see what 10 points sampled along a randomly generated ray for each image look like.
+                            Part 1.1 & 1.2: I implemented UNET using the given architecture, which consists of downsampling and then upsampling with concatenations. I trained my denoiser on the noisy images below.
                         </p>
                 
                     <table width="100%">
                     <tr>
                       <td align="center" valign="top">
-                        <img src="lego_viz.png">
+                        <img src="noising.png">
                       </td>
                     </tr>
                   </table>
 
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                            For the model, I followed the recommended implementation, which features 8 dense layers and a split into a density and color output. I used a coordinate positional encoding frequency of 10 and a direction positional encoding frequency of 4. I trained my model for 1000 epochs, each with 10000 rays. Here is the progression of my model.
-                        </p>
-
-                <table width="100%">
-                    <tr>
-                      <td align="center" valign="top">
-                        <img src="nerf_lego_render100.gif">
-                      </td>
-                        <td align="center" valign="top">
-                        <img src="nerf_lego_render200.gif">
-                      </td>
-                        <td align="center" valign="top">
-                        <img src="nerf_lego_render300.gif">
-                      </td>
-                        <td align="center" valign="top">
-                        <img src="nerf_lego_render400.gif">
-                      </td>
-                    </tr>
-                  </table>
-                <p class="mb-4 text-gray-700 leading-relaxed">
-                            Final Output of LEGO and PSNR.
-                        </p>
-
-                <table width="100%">
-                    <tr>
-                      <td align="center" valign="top">
-                        <img src="nerf_lego_render (8).gif">
-                      </td>
-                        <td align="center" valign="top">
-                        <img src="lego_PSNR_curve.png">
-                      </td>
-                    </tr>
-                  </table>
-            </section>
-
-                        <!-- Part 2.6 -->
-            <section class="bg-white p-6 md:p-8 rounded-xl shadow-md">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Part 2.6</h2>
-                        <p class="mb-4 text-gray-700 leading-relaxed">
-                            Unfortunately, my data did not work well with this model. The changes I made included flipping the height and width of the images, changing the range of sampling points along the ray to [0.02,0.25], and finally reducing the number of frames in the GIF due to the long runtime encountered with generating frames. Below is the PSNR curve I obtained and my attempt at the rotation GIF (though it did not work well due to my low PSNR)
-                        </p>
-                    <table width="100%">
-                    <tr>
-                      <td align="center" valign="top">
-                        <img src="PSNR_mouse.png">
-                      </td>
-                
-                      <td align="center" valign="top">
-                        <img src="nerf_mouse_render1000-ezgif.com-optimize.gif">
-                      </td>
-                    </tr>
-                  </table>
-
-                
             </section>
 
         </main>
